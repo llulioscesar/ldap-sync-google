@@ -1,10 +1,10 @@
 module github.com/startcodex/ldap-google-sync
 
-go 1.22
+go 1.24.0
 
 require (
 	github.com/go-ldap/ldap/v3 v3.4.6
-	golang.org/x/oauth2 v0.24.0
+	golang.org/x/oauth2 v0.33.0
 	google.golang.org/api v0.209.0
 )
 
@@ -27,10 +27,10 @@ require (
 	go.opentelemetry.io/otel v1.29.0 // indirect
 	go.opentelemetry.io/otel/metric v1.29.0 // indirect
 	go.opentelemetry.io/otel/trace v1.29.0 // indirect
-	golang.org/x/crypto v0.29.0 // indirect
-	golang.org/x/net v0.31.0 // indirect
-	golang.org/x/sys v0.27.0 // indirect
-	golang.org/x/text v0.20.0 // indirect
+	golang.org/x/crypto v0.45.0 // indirect
+	golang.org/x/net v0.47.0 // indirect
+	golang.org/x/sys v0.38.0 // indirect
+	golang.org/x/text v0.31.0 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20241113202542-65e8d215514f // indirect
 	google.golang.org/grpc v1.67.1 // indirect
 	google.golang.org/protobuf v1.35.2 // indirect

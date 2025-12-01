@@ -17,7 +17,7 @@ func main() {
 	log.SetOutput(os.Stdout)
 
 	log.Println("LDAP to Google Workspace Sync Tool")
-	log.Println("Version: 2.1.0")
+	log.Println("Version: 0.1.0")
 
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
