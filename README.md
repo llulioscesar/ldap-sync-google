@@ -251,6 +251,10 @@ The `SYNC_INTERVAL` variable accepts Go duration format:
 
 Minimum interval: `1m` (1 minute)
 
+## Multi-Domain Support
+
+When using a `LDAP_BASE_DN` that spans multiple domains (e.g., `dc=example,dc=com` with sub-trees like `dc=otherdomain,dc=example,dc=com`), the sync handles users that already exist in Google Workspace gracefully. If a user creation returns a `409 Duplicate` error, the sync automatically falls back to updating the existing user instead of failing.
+
 ## Supported LDAP Group Types
 
 The application supports both common LDAP group types:
