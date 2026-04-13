@@ -235,6 +235,20 @@ func (s *Syncer) createUser(user config.User, orgUnit string) error {
 
 	err := s.googleClient.CreateUser(user, orgUnit, true)
 	if err != nil {
+		if strings.Contains(err.Error(), "duplicate") || strings.Contains(err.Error(), "already exists") || strings.Contains(err.Error(), "409") {
+			log.Printf("  User %s already exists in Google (possibly in another domain), attempting update instead...", user.Email)
+			if s.cfg.Sync.UpdateUsers {
+				if updateErr := s.googleClient.UpdateUser(user); updateErr != nil {
+					s.stats.Errors++
+					return fmt.Errorf("user already exists and update failed: %w", updateErr)
+				}
+				s.stats.UsersUpdated++
+				return nil
+			}
+			log.Printf("  Skipping user %s (already exists, UpdateUsers disabled)", user.Email)
+			s.stats.UsersSkipped++
+			return nil
+		}
 		s.stats.Errors++
 		return err
 	}
